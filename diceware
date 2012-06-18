@@ -9,8 +9,8 @@ def getwords(wordlist):
       'diceware': 'diceware.txt',
       'beale': 'beale.txt'
       }
-   with open(os.path.join(os.path.abspath(os.path.dirname(__file__))
-                          ,lists[wordlist]),'r') as f:
+   path=os.path.dirname(os.path.realpath(os.path.abspath(__file__)))
+   with open(os.path.join(path,lists[wordlist]),'r') as f:
       return f.readlines()
 
 def getidx():

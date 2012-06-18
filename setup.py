@@ -11,7 +11,5 @@ setup(
     author_email='oconnore@gmail.com',
 
     scripts=['diceware'],
-    data_files=[('share/diceware',
-                 ['diceware.txt',
-                  'beale.txt'])]
+    package_data={'': ['beale.txt','diceware.txt']}
     )

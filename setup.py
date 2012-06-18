@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from setuptools import setup
+from distutils.core import setup
 
 setup(
     name='diceware',
@@ -11,7 +11,7 @@ setup(
     author_email='oconnore@gmail.com',
 
     scripts=['diceware'],
-    data_files=[('',
+    data_files=[('share/diceware',
                  ['diceware.txt',
                   'beale.txt'])]
     )

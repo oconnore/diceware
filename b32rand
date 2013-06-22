@@ -1,0 +1,26 @@
+#!/usr/bin/env python3
+
+import base64,argparse
+
+def run():
+    p=argparse.ArgumentParser(description='''
+Simple base32 random bytes
+'''.strip())
+    p.add_argument('bytes',type=int,default=10,nargs='?',
+                   help='bytes')
+    opt=p.parse_args()
+    with open('/dev/urandom','rb') as f:
+        by=f.read(opt.bytes)
+        tmp=base64.b32encode(by)
+        try:
+            idx=tmp.index(b'=')
+        except:
+            idx=len(tmp)
+        print(tmp[:idx].decode().lower())
+
+if __name__=='__main__':
+    try:
+        run()
+    except KeyboardInterrupt as ki:
+        print('goodbye')
+
